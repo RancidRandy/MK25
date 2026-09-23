@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InteractableTemplate : MonoBehaviour, IInteractable
-{    
-    public void Interact()
+public abstract class InteractableTemplate : MonoBehaviour, IInteractable
+{
+    public virtual void Interact()
     {
         //What does the object do upon interaction? Insert here.
-        Debug.Log("Boop!");        
+        Debug.Log("Boop!");
+        Destroy(gameObject);
     }
 }
