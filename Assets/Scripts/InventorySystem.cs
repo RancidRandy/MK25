@@ -114,6 +114,8 @@ public class InventorySystem : MonoBehaviour
                 // Slot is empty: hide the icon
                 slotUIImages[i].sprite = null;
                 slotUIImages[i].enabled = false;
+                selectedName.text = " ";
+                selectedDescription.text = " ";
             }
         }
     }

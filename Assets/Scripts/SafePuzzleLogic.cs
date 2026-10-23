@@ -14,6 +14,10 @@ public class SafePuzzleLogic : MonoBehaviour
     private Queue<int> inputSequenceQueue = new Queue<int>();
     private int currentIndex = 0;
 
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip dial;
+    [SerializeField] AudioClip unlock;
+
     void Start()
     {
         currentIndex = 0;
@@ -41,7 +45,8 @@ public class SafePuzzleLogic : MonoBehaviour
             if (sequencesMatch)
             {
                 Debug.Log("COMPLETED, DONE. YAY!");
-                
+                audioSource.resource = unlock;
+                audioSource.Play();
                 // Insert safe unlocking stuff, disable scripts relevant to the puzzle etc.
             }
         }
@@ -58,6 +63,8 @@ public class SafePuzzleLogic : MonoBehaviour
             }
             Debug.Log($"Dial position: {currentIndex}");
             AddInputAndCheck();
+            audioSource.resource = dial;
+            audioSource.Play();
         }
         else if (Input.GetKeyDown(KeyCode.D))
         {
@@ -68,6 +75,8 @@ public class SafePuzzleLogic : MonoBehaviour
             }
             Debug.Log($"Dial position: {currentIndex}");
             AddInputAndCheck();
+            audioSource.resource = dial;
+            audioSource.Play();
         }
     }
 
